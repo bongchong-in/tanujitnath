@@ -1,0 +1,95 @@
+:root {
+  --bg: #030303;
+  --text: #F0F0F0;
+  --highlight: #E5E5E5;
+  --dim: #444;
+  --accent: #22c55e;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Geist Mono', monospace;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.cinematic-font {
+  font-family: 'Italiana', serif;
+}
+
+/* Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.vertical-line {
+  width: 1px;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.05);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+/* Input Styling */
+.signal-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  padding: 1rem 0;
+  width: 100%;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.8rem;
+  transition: border-color 0.3s ease;
+}
+.signal-input:focus {
+  outline: none;
+  border-bottom-color: white;
+}
+.signal-input::placeholder {
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Image Treatments */
+.memory-img {
+  filter: grayscale(100%) contrast(1.1);
+  transition: filter 0.5s ease, transform 0.7s ease;
+}
+
+.memory-container:hover .memory-img {
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* Sticky Button Glow */
+.dm-glow {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.dm-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Marquee */
+.scrolling-text-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.scrolling-text {
+  display: inline-block;
+  animation: scroll 30s linear infinite;
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
